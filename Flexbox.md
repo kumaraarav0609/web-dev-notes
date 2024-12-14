@@ -53,6 +53,8 @@ When [`display: flex;`](#display-flex) is applied then it creates a new containe
 
 #### Flex Basis
 - It is a CSS property that changes the height or width of each element in a flex container depending on the [`flex-direction`](#flex-direction).
+- It is set to `auto` by default, meaning that it looks at the amount of content in each item and gives respective widths.
+- When it is set to `0` it makes each item have equal width.
 
 ##### Example (`flex-direction: column;`)
 
@@ -194,3 +196,33 @@ Do you see how the red box is now the last element? This happened because it's [
 - When space runs out on the line then it moves elements to the next line and still positions it properly.
 
 ![align-content-center](./assets/Images/Flexbox/align-content-center.png)
+
+## Flex Sizing
+
+- In flexbox, all flex items size's respond to the width of the window and change accordingly.
+- But what if we want to set specific sizes?
+
+### Flexbox Priority
+
+- Flexbox has a priority list for which values it follows to determine the size of the flex items.
+- Here is the list from highest to lowest:
+    1. min-width/max-width
+    2. [`flex-basis`](#flex-basis)
+    3. width
+    4. Content Width
+- When the max-width is bigger than the [`flex-basis`](#flex-basis) then flexbox will follow the [`flex-basis`](#flex-basis).
+- When the min-width is smaller than the [`flex-basis`](#flex-basis) then flexbox will follow the [`flex-basis`](#flex-basis).
+
+### flex-grow & flex-shrink
+
+#### flex-grow
+
+- A CSS property that is applied to the flexbox container and allows the flex items to grow larger than the [flex-basis](#flex-basis) until the entire width of the container is filled.
+- 1 = on, 0 = off.
+- Default value: 0.
+
+#### flex-shrink
+
+- A CSS property that is applied to the flexbox container and sets everything to the [flex-basis](#flex-basis) by default and shrinks if it goes below the [flex-basis](#flex-basis).
+- 1 = on, 0 = off.
+- Default value: 1.
